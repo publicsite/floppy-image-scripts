@@ -1,4 +1,8 @@
 #!/bin/sh
+
+OLD_UMASK="$(umask)"
+umask 0022
+
 mkdir convertedImages
 cd convertedImages
 mkdir temp
@@ -61,3 +65,5 @@ fi
 done
 
 rmdir tempmount
+
+umask "${OLD_UMASK}"
